@@ -1,10 +1,21 @@
-import { LightningElement, api } from "lwc";
+import { LightningElement, api, wire } from "lwc";
 import QRCodeLib from "@salesforce/resourceUrl/QRCodeLib"; // https://github.com/soldair/node-qrcode
 import { loadScript } from "lightning/platformResourceLoader";
+import { getRecord, getFieldValue } from "lightning/uiRecordApi";
+import CONTACT_LastScanned from "@salesforce/schema/Contact.LastScan__c";
 
 export default class qrCodeGenerator extends LightningElement {
 	_recordId;
 	_ready = {};
+
+	@wire(getRecord, { recordId: "$_recordId", fields: [CONTACT_LastScanned] })
+	wired_Contact({ data, error }) {
+		if (data) {
+			this.generateQR();
+		} else if (error) {
+			alert("error");
+		}
+	}
 
 	@api
 	get recordId() {
@@ -35,7 +46,7 @@ export default class qrCodeGenerator extends LightningElement {
 			});
 
 			// eslint-disable-next-line no-undef
-			QRCode.toCanvas(canvas, sData, { margin: 0, width: card.width * 0.9 })
+			QRCode.toCanvas(canvas, sData, { margin: 0, width: card.clientWidth * 0.9 })
 				// QRCode.toCanvas(canvas, sData)
 				.then(() => {
 					// eslint-disable-next-line no-console
