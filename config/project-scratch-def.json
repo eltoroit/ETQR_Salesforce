@@ -1,0 +1,13 @@
+{
+	"orgName": "@ELTOROIT - QRCode Demo",
+	"edition": "Developer",
+	"hasSampleData": true,
+	"settings": {
+		"lightningExperienceSettings": {
+			"enableS1DesktopEnabled": true
+		},
+		"mobileSettings": {
+			"enableS1EncryptedStoragePref2": false
+		}
+	}
+}
