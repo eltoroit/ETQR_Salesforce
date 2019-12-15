@@ -10,9 +10,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>QRScan__e.DTTM__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>QRScan__e</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>SessionData</apexPage>
         <enabled>true</enabled>

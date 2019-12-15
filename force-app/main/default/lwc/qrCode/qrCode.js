@@ -7,6 +7,5 @@ export default class qrCode extends LightningElement {
 
 	handleSession(event) {
 		this.sessionData = event.detail;
-		debugger;
 	}
 }
