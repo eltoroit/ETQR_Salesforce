@@ -5,6 +5,15 @@
         "paths": {
             "c/qrCodeGenerator": [
                 "qrCodeGenerator/qrCodeGenerator.js"
+            ],
+            "c/qrCode": [
+                "qrCode/qrCode.js"
+            ],
+            "c/qrCodeSession": [
+                "qrCodeSession/qrCodeSession.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
             ]
         }
     },

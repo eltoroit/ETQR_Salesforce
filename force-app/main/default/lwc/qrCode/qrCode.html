@@ -1,0 +1,6 @@
+<template>
+	<lightning-card>
+		<c-qr-code-generator record-id={recordId} session-data={sessionData}></c-qr-code-generator>
+	</lightning-card>
+	<c-qr-code-session onsession={handleSession}></c-qr-code-session>
+</template>

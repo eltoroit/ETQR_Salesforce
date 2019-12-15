@@ -1,21 +1,14 @@
-import { LightningElement, api, wire } from "lwc";
+/* eslint-disable no-alert */
+/* eslint-disable no-debugger */
+
+import { LightningElement, api } from "lwc";
 import QRCodeLib from "@salesforce/resourceUrl/QRCodeLib"; // https://github.com/soldair/node-qrcode
 import { loadScript } from "lightning/platformResourceLoader";
-import { getRecord, getFieldValue } from "lightning/uiRecordApi";
-import CONTACT_LastScanned from "@salesforce/schema/Contact.LastScan__c";
 
 export default class qrCodeGenerator extends LightningElement {
 	_recordId;
-	_ready = {};
-
-	@wire(getRecord, { recordId: "$_recordId", fields: [CONTACT_LastScanned] })
-	wired_Contact({ data, error }) {
-		if (data) {
-			this.generateQR();
-		} else if (error) {
-			alert("error");
-		}
-	}
+	_sessionData;
+	_libLoaded = false;
 
 	@api
 	get recordId() {
@@ -23,26 +16,36 @@ export default class qrCodeGenerator extends LightningElement {
 	}
 	set recordId(value) {
 		this._recordId = value;
-		this._ready.recordId = true;
+		this.generateQR();
+	}
+
+	@api
+	get sessionData() {
+		return this._sessionData;
+	}
+	set sessionData(value) {
+		this._sessionData = value;
 		this.generateQR();
 	}
 
 	constructor() {
 		super();
 		loadScript(this, QRCodeLib + "/qrcode.min.js").then(() => {
-			this._ready.staticResource = true;
+			this._libLoaded = true;
 			this.generateQR();
 		});
 	}
 
 	generateQR() {
-		if (this._ready.staticResource && this._ready.recordId) {
+		if (this._libLoaded && this.recordId && this.sessionData) {
 			const card = this.template.querySelector('[data-id="card"]');
 			const canvas = this.template.querySelector('[data-id="QRCode"]');
 			const sData = JSON.stringify({
 				copy1: this.recordId,
 				copy2: this.recordId,
-				dttm: new Date().toJSON()
+				dttm: new Date().toJSON(),
+				sessionId: this._sessionData.sessionId,
+				serverUrl: this._sessionData.serverUrl
 			});
 
 			// eslint-disable-next-line no-undef
