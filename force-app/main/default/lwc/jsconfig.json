@@ -3,20 +3,20 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/qrCodeGenerator": [
-                "qrCodeGenerator/qrCodeGenerator.js"
+            "c/pubsub": [
+                "pubsub/pubsub.js"
             ],
             "c/qrCode": [
                 "qrCode/qrCode.js"
             ],
-            "c/qrCodeSession": [
-                "qrCodeSession/qrCodeSession.js"
-            ],
-            "c/pubsub": [
-                "pubsub/pubsub.js"
+            "c/qrCodeGenerator": [
+                "qrCodeGenerator/qrCodeGenerator.js"
             ],
             "c/qrCodePlatformEvent": [
                 "qrCodePlatformEvent/qrCodePlatformEvent.js"
+            ],
+            "c/qrCodeSession": [
+                "qrCodeSession/qrCodeSession.js"
             ]
         }
     },

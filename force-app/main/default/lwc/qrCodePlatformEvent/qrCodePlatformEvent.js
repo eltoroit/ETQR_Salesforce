@@ -17,7 +17,6 @@ export default class qrCodePlatformEvent extends LightningElement {
 		};
 
 		subscribe(this._channelName, -1, messageCallback).then(response => {
-			alert(`Successfully subscribed to : ${JSON.stringify(response.channel)}`);
 			this._subscription = response;
 		});
 
