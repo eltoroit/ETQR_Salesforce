@@ -1,10 +1,37 @@
 /* eslint-disable no-alert */
-import { LightningElement } from "lwc";
+/* eslint-disable no-debugger */
+
+import { LightningElement, api, wire } from "lwc";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { subscribe, unsubscribe, onError } from "lightning/empApi";
+import { getRecord } from "lightning/uiRecordApi";
+import CONTACT_Name from "@salesforce/schema/Contact.Name";
 
 export default class qrCodePlatformEvent extends LightningElement {
 	_subscription = {};
+	_scannedRecordId = null;
 	_channelName = "/event/QRScan__e";
+
+	@api recordId;
+
+	@wire(getRecord, { recordId: "$_scannedRecordId", fields: [CONTACT_Name] })
+	wired_GetCntact({ data, error }) {
+		if (data) {
+			if (this._scannedRecordId) {
+				debugger;
+				this.dispatchEvent(
+					new ShowToastEvent({
+						title: "QR Code Scanned",
+						message: `Scanned: ${data.fields.Name.value}`,
+						variant: "success"
+					})
+				);
+				this._scannedRecordId = null;
+			}
+		} else if (error) {
+			console.error(error);
+		}
+	}
 
 	constructor() {
 		super();
@@ -13,7 +40,10 @@ export default class qrCodePlatformEvent extends LightningElement {
 
 	peSubscribe() {
 		const messageCallback = response => {
-			alert(`Scanned: ${JSON.stringify(response)}`);
+			const payload = response.data.payload;
+			if (payload.RecordId__c === this.recordId) {
+				this._scannedRecordId = payload.RecordId__c;
+			}
 		};
 
 		subscribe(this._channelName, -1, messageCallback).then(response => {

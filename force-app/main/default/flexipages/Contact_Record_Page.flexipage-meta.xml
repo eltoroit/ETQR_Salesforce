@@ -16,7 +16,6 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -43,7 +42,6 @@
             </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>relatedTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -51,7 +49,6 @@
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>detailTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -59,7 +56,6 @@
         <componentInstances>
             <componentName>runtime_sales_social:socialPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>newsTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -105,7 +101,6 @@
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>maintabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -117,7 +112,6 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -125,7 +119,6 @@
         <componentInstances>
             <componentName>runtime_sales_activities:activityPanel</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>activityTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -133,7 +126,6 @@
         <componentInstances>
             <componentName>forceChatter:recordFeedContainer</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>feedTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -164,7 +156,6 @@
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>sidebartabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -179,15 +170,13 @@
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
-        <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Contact Record Page</masterLabel>
-    <parentFlexiPage>sfa__Contact_rec_L</parentFlexiPage>
     <sobjectType>Contact</sobjectType>
     <template>
-        <name>flexipage:recordHomeTemplateDesktop</name>
+        <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

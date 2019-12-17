@@ -31,7 +31,6 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>QR</label>
     <navType>Standard</navType>
-    <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>QR_UtilityBar</utilityBar>

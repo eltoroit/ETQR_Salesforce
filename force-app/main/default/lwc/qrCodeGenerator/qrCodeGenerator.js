@@ -49,7 +49,7 @@ export default class qrCodeGenerator extends LightningElement {
 			});
 
 			// eslint-disable-next-line no-undef
-			QRCode.toCanvas(canvas, sData, { margin: 0, width: card.clientWidth * 0.9 })
+			QRCode.toCanvas(canvas, sData, { margin: 0, scale: 4 })
 				// QRCode.toCanvas(canvas, sData)
 				.then(() => {
 					// eslint-disable-next-line no-console
